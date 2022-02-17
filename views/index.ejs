@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+
+  <header>
+    <h1>
+      <%= title %>
+    </h1>
+    <p>Welcome to <%= title %>
+    </p>
+  </header>
+
+  <main>
+    <div class="square-holder center-div">
+      <div class="flex-child square">
+        <h2>Create QR Code</h2>
+        <form action="/getQR" method="post">
+          <label for="url">URL: </label>
+          <input type="url" name="url" id="url">
+          <button type="submit">Generate QR Code</button>
+        </form>
+      </div>
+  
+      <% if (reqMethod=="post") { %>
+        <div class="flex-child square">
+          <img src="<%= endPoint %> " alt="auto generated QR code">
+        </div>
+      <% } %>
+  
+      
+    </div>
+  </main>
+
+  <footer>
+    <p>Created by <a href="https://www.jackljones.com/">Jack Jones</a></p>
+  </footer>
+
+
+
+
+
+
+</body>
+
+</html>
